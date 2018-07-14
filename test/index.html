@@ -2,7 +2,13 @@
 <html>
 <head>
 <!-- Global site tag (gtag.js) - Google Analytics -->
-
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117935552-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-117935552-1');
+	</script>
 
 	<!-- Required meta tags -->
     <meta charset="utf-8">
@@ -12,8 +18,6 @@
     <link rel="shortcut icon" type="image/x-icon" href="">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/bootstrap.css">
-		<link rel="stylesheet" href="css/jquery-ui.css">
 	  <link rel="stylesheet" href="css/style.css">
 
     <title>Googly Eyes</title>
@@ -21,28 +25,11 @@
 </head>
 <body>
 
-		<div class='row justify-content-center align-items-center'>
-			<div class='column'>
-				<div class='face row justify-content-center align-items-center'>
-					<div class='eye' id='leftEye'>
-							<div class='pupil ' id='leftPupil'>
-							</div>
-					</div>
-					<div class='eye' id='rightEye'>
-						<div class='pupil ' id='rightPupil'>
-						</div>
-					</div>
-					<div class='mouth'>
-					</div>
-				</div>
-			</div>
+		<div id='leftPupil'>
+
 		</div>
 
-		<div class='row justify-content-center align-items-center'>
-			<h1>Googly Eyes!</h2>
-		</div>
-
-		<div class='row justify-content-center align-items-center'>
+		<div>
 			<input type="range" min="1" max="400" value="200" class="slider" id="speed">
 		</div>
 
