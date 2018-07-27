@@ -1,17 +1,27 @@
 $ (function(){
+
+	let clickArea = $('.click-area');
+	clickArea.css('height', $(window).height());
+
 	let googlyEye = {
 		//Establishing variables
-		eye: 'some stuff, maybe a unique ID',
-		pupil: 'other stuff, prolly also a unique ID',
-		eyeID#: 0,
-		pupilID#: 0,
+		eyeID: 0,
+		pupilID: 0,
 		//Create new eye and pupil function
 		createGooglyEyeHTML: function() {
-			newEyeID = eye;
-			newEyeID# += this.eyeID++;
-			newPupilID = pupil;
+			newEyeID = 'eye';
+			newEyeID += this.eyeID++;
+			newPupilID = 'pupil';
 			newPupilID += this.pupilID++;
-			$('.face').append("<div class='eye' id='"newEyeID"'><div class='pupil ' id='"newPupilID"'></div></div>")
+			clickArea.append("<div class='eye' id='" + newEyeID + "'><div class='pupil ' id='" + newPupilID + "'></div></div>");
+
+			$("#" + newEyeID).css({
+				'top': 100,
+				'left': 200
+			})
+
+			console.log('Object Creation Works!');
+
 		},
 		//Pupil animation
 		eyeFall: function() {
@@ -32,4 +42,9 @@ $ (function(){
 			});
 		}
 	}
+//Add new googlyEye object on right click
+	clickArea.dblclick(function() {
+		googlyEye.createGooglyEyeHTML();
+	});
+
 });

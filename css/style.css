@@ -1,15 +1,11 @@
 body {
   background-color: rgb(55, 176, 19);:
   color: white;
+  height: 100%;
 }
 
-.face {
-  margin-top: 100px;
-  margin-bottom: 70px;
-  background-color: yellow;
-  border-radius: 500px;
-  width: 500px;
-  height: 500px;
+.click-area {
+
 }
 
 .eye {
@@ -18,14 +14,6 @@ body {
   border-radius: 100px;
   width: 100px;
   height: 100px;
-}
-
-#leftEye {
-  margin-right: 20px;
-}
-
-#rightEye {
-  margin-left: 20px;
 }
 
 .pupil {
@@ -37,17 +25,4 @@ body {
   height: 20px;
   position: relative;
   left: 40px;
-}
-
-#leftPupil {
-}
-
-#rightPupil {
-}
-
-.mouth {
-  background-color: black;
-  width: 350px;
-  height: 150px;
-  border-radius: 100px;
 }
