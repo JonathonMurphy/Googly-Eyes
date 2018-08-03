@@ -20,6 +20,8 @@ $ (function(){
 			this.eyeFall();
 			console.log('#' + newPupilID);
 		},
+		//If statement to determine in a googly eye is already present on the screen
+		//doesEyeExist: if ($('.eye')) {}
 		//Pupil animation
 		eyeFall: function() {
 			let pupilPosition = $('#' + newPupilID).position().top;
@@ -33,12 +35,9 @@ $ (function(){
 		//Pupil drag function
 		eyeDrag: function() {
 			$('#' + newPupilID).draggable({
-				containment: 'parent'
-			}).mouseup(function() {
-				this.eyeFall();
-			});
+				containment: 'parent'});
 		}
-	}
+	} // End of object
 //Add new googlyEye object on right click
 	clickArea.dblclick(function() {
 		let x = event.pageX;
@@ -53,5 +52,11 @@ $ (function(){
 	clickArea.mouseup(function() {
 		googlyEye.eyeFall();
 	});
+if ($('pupil0')) {
+	$('.pupil').click(function(event){
+		$(this).append("Clicked");
+	})
+}
+
 
 });
