@@ -9,6 +9,7 @@ $ (function(){
 	let eyeSize = $sliderValue;
 	let pupilSize = $sliderValue * 0.4;
 	let pupilLeft = $sliderValue * 0.3;
+	//These two need to be tied to the ID once the object is created
 	let radius = $sliderValue * 0.28;
 	let sizeDifference = eyeSize - pupilSize;
 	$clickArea.css('height', $(window).height());
