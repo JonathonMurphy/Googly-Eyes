@@ -5,26 +5,25 @@ body {
   color: white;
   height: 100%;
 }
-
-.click-area {
-
+p {
+  color: grey;
+  opacity: 0.5;
+  margin-left: 20px;
 }
+.instruction-text {
 
+  margin-top: 25px;
+}
+.slider {
+  margin-left: 25px;
+}
 .eye {
   background-color: black;
-  border-radius: 50px;
-  width: 25px;
-  height: 25px;
   position: absolute;
 }
-
 .pupil {
   background-color: white;
   margin: 0;
   padding: 0;
-  border-radius: 20px;
-  width: 5px;
-  height: 5px;
   position: relative;
-  left: 10px;
 }
