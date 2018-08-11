@@ -55,7 +55,7 @@ Right Eye = Control
 	});
 
 //Randomly changing background color (RGB Color)
-/*
+
 	let rgb;
 
 	function randomByte() {
@@ -79,5 +79,5 @@ Right Eye = Control
 	}
 
 	backgroundColorLoop();
-	*/
+	
 });
