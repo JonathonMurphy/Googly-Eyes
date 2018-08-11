@@ -1,53 +1,29 @@
 body {
-  background-color: rgb(55, 176, 19);:
+  /*background-color: #9ce4c7;*/
+  background-image: url(../img/group.jpg);
+  background-repeat: no-repeat;
   color: white;
+  height: 100%;
 }
-
-.face {
-  margin-top: 100px;
-  margin-bottom: 70px;
-  background-color: yellow;
-  border-radius: 500px;
-  width: 500px;
-  height: 500px;
-}
-
-.eye {
-  background-color: black;
-  margin-top: 20px;
-  border-radius: 100px;
-  width: 100px;
-  height: 100px;
-}
-
-#leftEye {
-  margin-right: 20px;
-}
-
-#rightEye {
+p {
+  color: grey;
+  opacity: 0.5;
   margin-left: 20px;
 }
+.instruction-text {
 
+  margin-top: 25px;
+}
+.slider {
+  margin-left: 25px;
+}
+.eye {
+  background-color: black;
+  position: absolute;
+}
 .pupil {
   background-color: white;
   margin: 0;
   padding: 0;
-  border-radius: 20px;
-  width: 20px;
-  height: 20px;
   position: relative;
-  left: 40px;
-}
-
-#leftPupil {
-}
-
-#rightPupil {
-}
-
-.mouth {
-  background-color: black;
-  width: 350px;
-  height: 150px;
-  border-radius: 100px;
 }

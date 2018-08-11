@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
@@ -20,36 +20,24 @@
 
 </head>
 <body>
-
-		<div class='row justify-content-center align-items-center'>
-			<div class='column'>
-				<div class='face row justify-content-center align-items-center'>
-					<div class='eye' id='leftEye'>
-							<div class='pupil ' id='leftPupil'>
-							</div>
-					</div>
-					<div class='eye' id='rightEye'>
-						<div class='pupil ' id='rightPupil'>
-						</div>
-					</div>
-					<div class='mouth'>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class='row justify-content-center align-items-center'>
-			<h1>Googly Eyes!</h2>
-		</div>
-
-		<div class='row justify-content-center align-items-center'>
-			<input type="range" min="1" max="400" value="200" class="slider" id="speed">
-		</div>
-
+  <div class='row'>
+    <div class='col click-area'>
+      <div class='instruction-text'>
+        <p>Double click to put googly eyes on these goofy guys and gals...</p>
+      </div>
+      <div class="slidecontainer">
+        <input type="range" min="15" max="35" value="25" class="slider" id="slider">
+        <p>Slider currently does nothing...
+          <br>
+          or does it...
+        </p>
+      </div>
+    </div>
+  </div>
 </body>
 <footer>
 		<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 		<script type="text/javascript" src="js/jquery-ui.js"></script>
-		<script type="text/javascript" src="js/googlyEyes.js"></script>
+		<script type="text/javascript" src="js/googlyEyes2.js"></script>
 </footer>
 </html>
