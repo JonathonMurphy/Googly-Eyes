@@ -1,62 +1,85 @@
 $ (function(){
-	let clickArea = $('.click-area');
-	clickArea.css('height', $(window).height());
-	let googlyEye = {
-		//Establishing variables
-		eyeID: 0,
-		pupilID: 0,
-		//Create new eye and pupil function
-		createGooglyEyeHTML: function(x, y) {
-			newEyeID = 'eye';
-			newEyeID += this.eyeID++;
-			newPupilID = 'pupil';
-			newPupilID += this.pupilID++;
-			clickArea.append("<div class='eye' id='" + newEyeID + "'><div class='pupil ' id='" + newPupilID + "'></div></div>");
-			//Set Eye Position
-			$('.eye').last().css({
-				'left': x,
-				'top': y
+
+	//Les Variables
+	let main;
+	let i = 0;
+	let googlyEyeArray = [];
+	let $clickArea = $('body');
+	let $sliderValue = $('#slider').val();
+	let eyeSize = $sliderValue;
+	let pupilSize = $sliderValue * 0.4;
+	let pupilLeft = $sliderValue * 0.3;
+	//These two need to be tied to the ID once the object is created
+	let radius = $sliderValue * 0.28;
+	let sizeDifference = eyeSize - pupilSize;
+	$clickArea.css('height', $(window).height());
+
+
+	//Update Slider Value
+	$('.slider').change(function() {
+		$sliderValue = $('#slider').val();
+		eyeSize = $sliderValue;
+		pupilSize = $sliderValue * 0.4;
+		pupilLeft = $sliderValue * 0.3;
+		radius = $sliderValue * 0.28;
+		sizeDifference = eyeSize - pupilSize;
+		return $sliderValue, eyeSize, pupilSize, pupilLeft, radius, sizeDifference;
+	})
+
+
+	//Googly Eye Object Constructor
+	function googlyEye(i, x, y, html) {
+		this.x = event.pageX;
+		this.y = event.pageY;
+		this.html = "<div class='eye' id='eye"+i+"' ";
+		this.html += "style='top:"+this.y+"px; left:"+this.x+"px;'>";
+		this.html += "<div class='pupil ' id='pupil"+i+"'></div></div>"
+	}
+
+
+	//Event Triggers & Parameters
+	$clickArea.mouseup(function() {
+		mainLoop(i);
+	}).dblclick(function() {
+		googlyEyeArray.push(i);
+		googlyEyeArray[i] = new googlyEye(i);
+		$clickArea.append(googlyEyeArray[i].html);
+		$('#eye'+i).draggable({
+			containment: 'parent'}).css({
+				'width' : eyeSize + 'px',
+				'height' : eyeSize + 'px',
+				'border-radius' : eyeSize + 'px'
 			});
-			this.eyeFall();
-			console.log('#' + newPupilID);
-		},
-		//If statement to determine in a googly eye is already present on the screen
-		//doesEyeExist: if ($('.eye')) {}
-		//Pupil animation
-		eyeFall: function() {
-			let pupilPosition = $('#' + newPupilID).position().top;
-			let fallDistance = 40 - pupilPosition + 'px';
-			if (pupilPosition < 40){
-				$('#' + newPupilID).animate({
+		$('#pupil'+i).draggable({
+			containment: 'parent',
+			//Thanks to Borgboy on stackOverflow
+			drag: function( event, ui ) {
+	        var x = ui.position.left - radius,
+	            y = radius - ui.position.top,
+	            h = Math.sqrt(x*x + y*y);
+	        if (Math.floor(h) > radius) {
+	            ui.position.top = radius - Math.round(radius * y / h);
+	            ui.position.left = Math.round(radius * x / h) + radius;
+	        }}}).css({
+						'width' : pupilSize + 'px',
+						'height' : pupilSize + 'px',
+						'border-radius' : pupilSize + 'px',
+						'left' : pupilLeft + 'px'
+					});
+		i++;
+		mainLoop(i);
+	});
+
+
+//Main animation loop
+	function mainLoop(i) {
+		for (x = 0; x < i; x++) {
+			let pupilPosition = $('#pupil' + x).position().top;
+			let fallDistance = sizeDifference - pupilPosition + 'px';
+			if (pupilPosition < 15){
+				$('#pupil' + x).animate({
 						top: '+='+fallDistance
 				}, 200);
-			}
-		},
-		//Pupil drag function
-		eyeDrag: function() {
-			$('#' + newPupilID).draggable({
-				containment: 'parent'});
-		}
-	} // End of object
-//Add new googlyEye object on right click
-	clickArea.dblclick(function() {
-		let x = event.pageX;
-		let y = event.pageY;
-		googlyEye.createGooglyEyeHTML(x, y);
-	});
-
-	clickArea.mousedown(function() {
-		googlyEye.eyeDrag();
-	});
-
-	clickArea.mouseup(function() {
-		googlyEye.eyeFall();
-	});
-if ($('pupil0')) {
-	$('.pupil').click(function(event){
-		$(this).append("Clicked");
-	})
-}
-
+			}}}
 
 });
