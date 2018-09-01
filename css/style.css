@@ -17,13 +17,3 @@ p {
 .slider {
   margin-left: 25px;
 }
-.eye {
-  background-color: black;
-  position: absolute;
-}
-.pupil {
-  background-color: white;
-  margin: 0;
-  padding: 0;
-  position: relative;
-}
