@@ -1,7 +1,16 @@
 $ (function(){
 
-	//Test if running
-	console.log("Go Go Googly Eye Chrome Extension");
+	//IDEA G + click adds googly eye instead of double click
+
+	//BUG #1 Pupil can fall outside of the Eye cirlce area
+
+	//BUG #2 Googly Eyes default to the bottom of the initial viewport
+	//when placed in a location outside of that viewport and then moved
+	//via the drag funtion
+
+	//TODO
+	//Clean up the repo and merge with master
+	//Improve the look of the googly eye with css
 
 	//Les Variables
 	let main;
