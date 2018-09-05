@@ -1,45 +1,47 @@
 $ (function(){
 
-	//IDEA G + click adds googly eye instead of double click
-
 	//BUG #1 Pupil can fall outside of the Eye cirlce area
-
-	//BUG #2 Googly Eyes default to the bottom of the initial viewport
-	//when placed in a location outside of that viewport and then moved
-	//via the drag funtion
 
 	//TODO
 	//Clean up the repo and merge with master
 	//Improve the look of the googly eye with css
 
+
 	//Les Variables
 	let main;
+	let x = 0;
+	let y = 0;
 	let i = 0;
-	let googlyEyeArray = [];
-	let $clickArea = $('body');
+	let radius = 7;
 	let eyeSize = 25;
 	let pupilSize = 10;
 	let pupilLeft = 7.5;
-	//These two need to be tied to the ID once the object is created
-	let radius = 7;
+	let googlyEyeArray = [];
+	let $clickArea = $('body');
 	let sizeDifference = eyeSize - pupilSize;
-	$clickArea.css('height', $(window).height());
 
+	//Set position of x & y by the location of the context menu
+	$clickArea.contextmenu(function(){
+		x = event.pageX - 10;
+		y = event.pageY - 10;
+		return x;
+		return y;
+	});
 
 	//Googly Eye Object Constructor
-	function googlyEye(i, x, y, html) {
-		this.x = event.pageX;
-		this.y = event.pageY;
+	function googlyEye(i) {
+		this.x = x;
+		this.y = y;
 		this.html = "<div class='eye' id='eye"+i+"' ";
 		this.html += "style='top:"+this.y+"px; left:"+this.x+"px;'>";
 		this.html += "<div class='pupil ' id='pupil"+i+"'></div></div>"
 	}
 
-
 	//Event Triggers & Parameters
 	$clickArea.mouseup(function() {
 		mainLoop(i);
-	}).dblclick(function() {
+	});
+	function addGooglyEye() {
 		googlyEyeArray.push(i);
 		googlyEyeArray[i] = new googlyEye(i);
 		$clickArea.append(googlyEyeArray[i].html);
@@ -75,7 +77,7 @@ $ (function(){
 					});
 		i++;
 		mainLoop(i);
-	});
+	};
 
 
 //Main animation loop
@@ -88,5 +90,16 @@ $ (function(){
 						top: '+='+fallDistance
 				}, 200);
 			}}}
+
+	//Recieve Response from
+	chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+    console.log(sender.tab ? sender.tab.url :
+                "from the extension");
+    if (request.greeting == "hello") {
+			sendResponse({farewell: "goodbye"});
+			addGooglyEye();
+		}
+  });
 
 });
