@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Googly Eyes on Everything",
-  "version": "0.2",
+  "version": "0.4",
   "description": "Lets you put googly eyes on anything and everything!",
   "icons": {
       "128": "favicon.png"
