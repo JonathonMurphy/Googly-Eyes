@@ -14,6 +14,7 @@ $ (function(){
 	let sizeDifference = eyeSize - pupilSize;
 	$clickArea.css('height', $(window).height());
 
+<<<<<<< HEAD
 
 	//Update Slider Value
 	$('.slider').change(function() {
@@ -82,4 +83,38 @@ $ (function(){
 				}, 200);
 			}}}
 
+=======
+<<<<<<< HEAD
+//Randomly changing background color (RGB Color)
+
+	let rgb;
+
+	function randomByte() {
+		return Math.floor(Math.random() * 256);
+	}
+
+	function randomColorGenerator() {
+		rgb = 'rgb(' + randomByte() + ',' + randomByte() + ',' + randomByte() + ')';
+		return rgb;
+	}
+
+	randomColorGenerator();
+=======
+	clickArea.mouseup(function() {
+		googlyEye.eyeFall();
+	});
+if ($('pupil0')) {
+	$('.pupil').click(function(event){
+		$(this).append("Clicked");
+	})
+}
+>>>>>>> 2060e2d84cc9cd51fa0c7e057e35c01144de0e93
+
+
+<<<<<<< HEAD
+	backgroundColorLoop();
+	
+=======
+>>>>>>> 2060e2d84cc9cd51fa0c7e057e35c01144de0e93
+>>>>>>> cc9f9fd1e30124259e87b1026e9c5cad9eda0bbe
 });
