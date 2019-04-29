@@ -6,14 +6,14 @@ Just right click, and then select 'Add Googly Eye'
 
 https://chrome.google.com/webstore/detail/googly-eyes-on-everything/kjjfieeekngphmcnclbgcaepogljinhi
 
-![alt text](https://raw.githubusercontent.com/JonathonMurphy/Googly-Eyes/blob/master/img/unnamed.jpg)
+![alt text](img/unnamed.jpg?raw=true "Title")
 
 ## Setup
 
 In Chrome:
 * chrome://extensions/
 * Load Unpacked
-* Select 'extension' directory 
+* Select 'extension' directory
 
 ## Author
 
